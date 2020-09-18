@@ -1,0 +1,19 @@
+{
+  "name": "chainlink-ad-network-adapter",
+  "version": "0.0.1",
+  "description": "adapter for chainlink ad network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Beltran <imthatcarlos@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "serverless-bundle": "^3.1.0",
+    "serverless-dotenv-plugin": "^3.0.0"
+  }
+}

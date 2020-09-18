@@ -1,0 +1,41 @@
+service: chainlink-ad-network-adapter
+app: chainlink-ad-network
+org: imthatcarlos
+
+plugins:
+  - serverless-bundle
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  environment:
+    SLS_STAGE: ${self:provider.stage}
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+  region: us-east-1
+  apiGateway:
+    minimumCompressionSize: 1024
+
+package:
+  individually: true
+
+functions:
+  adapter:
+    handler: adapter.handler
+    events:
+      - http:
+          description: 'endpoint handle adapter logic for chainlink contracts'
+          method: GET
+          path: adapter/
+          cors: true
+custom:
+  dotenv:
+    path: ./../.env
+    logging: false
+  bundle:
+    linting: ${self:custom.bundleEnabled.${self:provider.stage}}
+  bundleEnabled:
+    production: true
+    dev: false
+    local: false
