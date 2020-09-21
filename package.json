@@ -9,6 +9,7 @@
   "author": "Carlos Beltran <imthatcarlos@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@chainlink/external-adapter": "^0.2.4",
     "axios": "^0.20.0"
   },
   "devDependencies": {
